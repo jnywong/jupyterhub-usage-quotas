@@ -1,4 +1,25 @@
-# Python Package Template
+# JupyterHub Usage Quotas
 
-A Python package template largely based on the pyOpenSci
-pure [Python packaging tutorial](https://www.pyopensci.org/python-package-guide/tutorials/intro.html). Check out the [Python packaging guide](https://www.pyopensci.org/python-package-guide/).
+This library implements enforcement of compute usage quotas for Jupyter servers at server startup-time to manage resource consumption across shared infrastructure managed by [Zero to JupyterHub with Kubernetes](https://z2jh.jupyter.org/en/stable/) deployments.
+
+## Features
+
+- Metric based accounting for compute usage with Prometheus
+- Flexible and declarative usage policies, such as quota sizes and quota time windows
+- Server startup-time enforcement
+
+## Installation
+
+TBC
+
+## Documentation
+
+TBC
+
+## Contributing
+
+TBC
+
+## License
+
+This project is licensed under the [BSD 3-Clause License](./LICENSE).
