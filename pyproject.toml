@@ -11,13 +11,13 @@ requires = ["hatchling", "hatch-vcs"]
 ################################################################################
 
 [project]
-name = "project_name"
+name = "jupyterhub_usage_quotas"
 
 dynamic = ["version"]
 
-description = "project_description"
+description = "Enforce compute usage quotas at Jupyter server launch time to proactively manage resource consumption."
 authors = [
-    { name = "your_name", email = "your_email@somewhere.com" },
+    { name = "jnywong", email = "jnywong.pro@gmail.com" },
 ]
 license = "BSD-3-Clause"
 readme = {"file" = "README.md", "content-type" = "text/markdown"}
@@ -31,15 +31,15 @@ classifiers = [
     "Typing :: Typed",
 ]
 
-keywords = []
+keywords = [jupyterhub, prometheus, kubernetes, python]
 
 # Package dependencies
 dependencies = []
 
 [project.urls]
 Homepage = ""
-"Source Code" = ""
-"Bug Tracker" = ""
+"Source Code" = "https://github.com/2i2c-org/jupyterhub-usage-quotas"
+"Bug Tracker" = "https://github.com/2i2c-org/jupyterhub-usage-quotas/issues"
 Documentation = ""
 Download = ""
 
@@ -61,10 +61,10 @@ dev = [
 only-packages = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/package_name"]
+packages = ["src/jupyterhub_usage_quotas"]
 
 # [tool.hatch.build.hooks.vcs]
-# version-file = "src/<package_name>/_version.py"
+# version-file = "src/jupyterhub_usage_quotas/_version.py"
 
 [tool.hatch.version]
 source = "vcs"
@@ -89,14 +89,14 @@ markers = ["raises"]
 
 [tool.coverage.paths]
 source = [
-    "src/project_name",
+    "src/jupyterhub_usage_quotas",
 ]
 
 [tool.coverage.run]
 branch = true
 parallel = true
 omit = [
-    "src/project_name/_version.py",
+    "src/jupyterhub_usage_quotas/_version.py",
 ]
 
 [tool.coverage.report]
@@ -149,7 +149,7 @@ dependencies = [
 python = ["3.12", "3.13", "3.14"]
 
 [tool.hatch.envs.test.scripts]
-run = "pytest {args:--cov=src/package_name --cov-report=term-missing --cov-report=xml}"
+run = "pytest {args:--cov=src/jupyterhub_usage_quotas --cov-report=term-missing --cov-report=xml}"
 
 [tool.hatch.envs.style]
 description = """Check the style of the codebase."""
@@ -177,7 +177,7 @@ dependencies = [
 ]
 
 [tool.hatch.envs.types.scripts]
-check = "mypy src/package_name"
+check = "mypy src/jupyterhub_usage_quotas"
 
 [tool.hatch.envs.docs]
 description = """Build or serve the documentation."""
