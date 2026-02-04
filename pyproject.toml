@@ -46,11 +46,8 @@ Download = ""
 # [project.scripts]
 # script = "<package>.__main__:<entrypoint>"
 
-[project.optional-dependencies]
-dev = [
-    "hatch",
-    "pre-commit",
-]
+# [project.optional-dependencies]
+# dev = []
 
 ################################################################################
 # Tool Configuration
@@ -112,10 +109,11 @@ skip-install = true
 
 [tool.hatch.envs.dev]
 description = """
-Describe the environment for local development.
+Environment for local development.
 """
-dependencies = []
-path = ".venv"
+dependencies = [
+    "pre-commit",
+]
 
 [tool.hatch.envs.install]
 description = """Test the installation the package."""
@@ -185,7 +183,8 @@ python = "3.14"
 dependencies = [
     "mystmd",
 ]
+detached = true
 
-# [tool.hatch.envs.docs.scripts]
-# build = []
-# serve = []
+[tool.hatch.envs.docs.scripts]
+build = ["cd docs; myst build --html"]
+serve = ["cd docs; myst start"]
