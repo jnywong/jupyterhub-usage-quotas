@@ -105,7 +105,17 @@ precision = 2
 ################################################################################
 
 [tool.hatch.envs.default]
-skip-install = true
+python="3.14"
+installer="pip"
+post-install-commands = [
+  "python -m pip install --upgrade pip"
+]
+
+[tool.hatch.envs.py313]
+python = "3.13"
+
+[tool.hatch.envs.py312]
+python = "3.12"
 
 [tool.hatch.envs.dev]
 description = """
@@ -167,7 +177,8 @@ extra-dependencies = [
 ]
 
 [tool.hatch.envs.audit.scripts]
-check = ["pip-audit"]
+check = ["pip-audit --skip-editable"]
+
 [tool.hatch.envs.types]
 description = """Check the static types of the codebase."""
 dependencies = [
