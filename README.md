@@ -14,7 +14,7 @@ TBC
 
 ## Documentation
 
-TBC
+Documentation can be found at [https://jupyterhub-usage-quotas.readthedocs.io/en/latest/](https://jupyterhub-usage-quotas.readthedocs.io/en/latest/)
 
 ## Contributing
 
