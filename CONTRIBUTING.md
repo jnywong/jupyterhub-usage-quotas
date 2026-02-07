@@ -15,7 +15,7 @@ You can contribute in many ways, for example:
 
 ### Report Bugs
 
-Report bugs at https://github.com/2i2c-org/jupyterhub-usage-quotas/issues.
+Report bugs at [https://github.com/2i2c-org/jupyterhub-usage-quotas/issues](https://github.com/2i2c-org/jupyterhub-usage-quotas/issues).
 
 **If you are reporting a bug, please follow the template guidelines. The more
 detailed your report, the easier and thus faster we can help you.**
@@ -38,14 +38,14 @@ part of the official documentation, in docstrings, an update to our Contributing
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/2i2c-org/jupyterhub-usage-quotas/issues. If your feedback fits the format of one of the issue templates, please use that. Remember that this is a volunteer-driven project and everybody has limited time.
+The best way to send feedback is to file an issue at [https://github.com/2i2c-org/jupyterhub-usage-quotas/issues](https://github.com/2i2c-org/jupyterhub-usage-quotas/issues). If your feedback fits the format of one of the issue templates, please use that. Remember that this is a volunteer-driven project and everybody has limited time.
 
 ## Get Started!
 
 Ready to contribute? Here's how to set up for
 local development.
 
-1. Fork the https://github.com/2i2c-org/jupyterhub-usage-quotas repository on GitHub.
+1. Fork the [repository](https://github.com/2i2c-org/jupyterhub-usage-quotas) on GitHub.
 
 1. Clone your fork locally
 
@@ -55,7 +55,7 @@ local development.
 
 1. [Install hatch](https://hatch.pypa.io/latest/install/).
 
-1. Create a branch for local development using the default branch (typically `main`) as a starting point. Use `fix` or `feat` as a prefix for your branch name.
+1. Create a branch for local development using the default branch (typically `main`) as a starting point. Use `fix` or `feat` as a prefix for your branch name (see [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)).
 
    ```shell
    git checkout main
