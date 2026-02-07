@@ -33,7 +33,7 @@ See [Hatch docs](https://hatch.pypa.io/latest/install/) for a general walkthroug
 
 ## Running scripts
 
-See the `scripts` in [pyproject.toml](pyproject.toml) to see the configured commands available to `hatch run <env>:<command>`.
+See the `scripts` in [pyproject.toml](https://github.com/2i2c-org/jupyterhub-usage-quotas/blob/main/pyproject.toml) to see the configured commands available to `hatch run <env>:<command>`.
 
 ### Launch local development server
 
@@ -79,9 +79,9 @@ hatch shell test.py3.14
 
 ### Pre-commit
 
-We use pre-commit to automatically apply linting and code style checks when a `git commit` is made. See the configuration in the [.pre-commit-config.yaml](.pre-commit-config.yaml) file.
+We use pre-commit to automatically apply linting and code style checks when a `git commit` is made. See the configuration in the [.pre-commit-config.yaml](https://github.com/2i2c-org/jupyterhub-usage-quotas/blob/main/.pre-commit-config.yaml) file.
 
-In the `dev` environment, you can install the hooks and run with
+In the `dev` shell, you can install the hooks and run with
 
 ```bash
 pre-commit install

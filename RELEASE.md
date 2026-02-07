@@ -4,7 +4,7 @@ We publish images on [quay.io](https://quay.io/repository/2i2c/jupyterhub-usage-
 
 ## Build image and release publish Helm charts
 
-The GitHub Actions workflow [`publish-helm-chart.yaml`](https://github.com/2i2c-org/jupyterhub-usage-quotas/blob/main/.github/workflows/publish-helm-chart.yaml)) uses [chartpress](https://github.com/jupyterhub/chartpress) to automatically:
+The GitHub Actions workflow [`publish-helm-chart.yaml`](https://github.com/2i2c-org/jupyterhub-usage-quotas/blob/main/.github/workflows/publish-helm-chart.yaml) uses [chartpress](https://github.com/jupyterhub/chartpress) to automatically:
 
 - Build the image
 - Push the image to the Quay registry (quay.io)
@@ -39,7 +39,7 @@ To update a major or minor version, or patch a release, and publish on PyPI:
    git reset --hard origin/main
    ```
 
-   Install tbump if not already installed:
+   Install `tbump` if not already installed:
 
    ```bash
    pip install tbump
@@ -47,7 +47,9 @@ To update a major or minor version, or patch a release, and publish on PyPI:
 
 1. **Update Version with tbump**
 
+   ```{note}
    To perform the actions in this step, you will need write access to the GitHub repository.
+   ```
 
    Use `tbump` to update the version numbers in the codebase:
 
