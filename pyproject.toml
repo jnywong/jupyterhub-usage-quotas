@@ -127,7 +127,9 @@ description = """
 Environment for local development.
 """
 dependencies = [
+    "ipython",
     "pre-commit",
+    "traitlets",
 ]
 
 [tool.hatch.envs.dev.scripts]
