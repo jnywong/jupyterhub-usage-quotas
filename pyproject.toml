@@ -133,7 +133,7 @@ dependencies = [
 ]
 
 [tool.hatch.envs.dev.scripts]
-serve = ["env -C src/jupyterhub_usage_quotas -- fastapi dev"]
+serve = ["python -m jupyterhub_usage_quotas.app --Quotas.config_file='examples/usage_quotas_config.py'"]
 
 [tool.hatch.envs.install]
 description = """Test the installation the package."""

@@ -1,9 +1,14 @@
+import logging.config
+
 import uvicorn
 from fastapi import FastAPI
 from traitlets import Integer, Unicode
 from traitlets.config import Application, Instance
 
 from jupyterhub_usage_quotas.config import QuotasConfig
+from jupyterhub_usage_quotas.logs import LOGGING_CONFIG
+
+logging.config.dictConfig(LOGGING_CONFIG)
 
 
 class Quotas(Application):
@@ -22,6 +27,8 @@ class Quotas(Application):
 
     def initialize(self, argv=None):
         super().initialize(argv)
+
+        self._format_logs()
 
         if self.config_file:
             self.log.info(f"Loading config file: {self.config_file}")
@@ -44,10 +51,14 @@ class Quotas(Application):
             """
             return ("200: OK", 200)
 
+    def _format_logs(self):
+        for h in list(self.log.handlers):
+            self.log.removeHandler(h)
+        self.log.propagate = True
+
     def start(self):
-
+        self._format_logs()
         self.log.info(f"Starting server on {self.server_ip}:{self.server_port}")
-
         self.log.info(f"{self.quotas_config.prometheus_usage_metrics}")
 
         uvicorn.run(
@@ -55,8 +66,7 @@ class Quotas(Application):
             host=self.server_ip,
             port=self.server_port,
             log_level=self.log_level,
-            reload=False,
-            workers=1,
+            log_config=None,
         )
 
 
