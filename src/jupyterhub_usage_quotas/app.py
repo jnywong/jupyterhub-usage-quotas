@@ -51,6 +51,8 @@ class Quotas(Application):
             """
             return ("200: OK", 200)
 
+        return app
+
     def _format_logs(self):
         for h in list(self.log.handlers):
             self.log.removeHandler(h)
