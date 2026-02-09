@@ -12,30 +12,37 @@ logging.config.dictConfig(LOGGING_CONFIG)
 
 
 class Quotas(Application):
-    name = "jupyterhub-usage-quotas"
+    name = "jupyterhub_usage_quotas"
+    description = "Start a JupyterHub usage quotas server."
+    examples = """
+    Generate default config file:
+
+        jupyterhub_usage_quotas --generate-config -f /etc/jupyterhub/jupyterhub_usage_quotas_config.py
+    """
+
+    # Application traits
 
     server_ip = Unicode("0.0.0.0", help="IP address to bind API server.").tag(
         config=True
     )
     server_port = Integer(8000, help="Port to bind API server.").tag(config=True)
     server_log_level = Unicode("info", help="Uvicorn log level.").tag(config=True)
-    config_file = Unicode("usage_quotas_config.py", help="Config file to load.").tag(
-        config=True
-    )
+    config_file = Unicode(
+        "jupyterhub_usage_quotas_config.py", help="The config file to load"
+    ).tag(config=True)
 
-    quotas_config = Instance(QuotasConfig, allow_none=True)
+    # Configurable traits
 
-    def initialize(self, argv=None):
-        super().initialize(argv)
+    classes = [QuotasConfig]
 
-        self._format_logs()
+    quotas_config = Instance(QuotasConfig)
 
-        if self.config_file:
-            self.log.info(f"Loading config file: {self.config_file}")
-            self.load_config_file(self.config_file)
+    # Aliases
 
-        self.quotas_config = QuotasConfig(parent=self)
-        self.app = self._build_app()
+    aliases = {
+        "f": "Quotas.config_file",
+        "config": "Quotas.config_file",
+    }
 
     def _build_app(self) -> FastAPI:
         app = FastAPI()
@@ -59,18 +66,24 @@ class Quotas(Application):
         self.log.propagate = True
 
     def start(self):
-        self._format_logs()
+        self.app = self._build_app()
         self.log.info(f"Starting server on {self.server_ip}:{self.server_port}")
-        self.log.info(f"{self.quotas_config.prometheus_usage_metrics}")
+        self.load_config_file(self.config_file)
+        self._format_logs()
+        self.log.info(f"{self.config=}")
 
         uvicorn.run(
             self.app,
             host=self.server_ip,
             port=self.server_port,
             log_level=self.log_level,
-            log_config=None,
+            log_config=None,  # use LOGGING_CONFIG and not uvicorn log config
         )
 
 
-if __name__ == "__main__":
+def main():
     Quotas.launch_instance()
+
+
+if __name__ == "__main__":
+    main()
