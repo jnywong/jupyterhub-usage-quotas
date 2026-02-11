@@ -35,7 +35,6 @@ keywords = ["jupyterhub", "prometheus", "kubernetes", "python"]
 
 # Package dependencies
 dependencies = [
-    "fastapi[standard]>=0.128.0",
     "traitlets>=5.14.0",
 ]
 
@@ -114,9 +113,6 @@ post-install-commands = [
   "python -m pip install --upgrade pip"
 ]
 
-[tool.hatch.envs.default.scripts]
-serve = "jupyterhub_usage_quotas"
-
 [tool.hatch.envs.py313]
 python = "3.13"
 
@@ -132,9 +128,6 @@ dependencies = [
     "ipython",
     "pre-commit",
 ]
-
-[tool.hatch.envs.dev.scripts]
-serve = "jupyterhub_usage_quotas --config examples/usage_quotas_config.py"
 
 [tool.hatch.envs.install]
 description = """Test the installation the package."""

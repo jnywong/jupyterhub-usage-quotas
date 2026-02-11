@@ -1,16 +1,5 @@
 # Release Guide
 
-We publish images on [quay.io](https://quay.io/repository/2i2c/jupyterhub-usage-quotas) and [Helm charts](https://2i2c.org/jupyterhub-usage-quotas/) for every tag, including development versions.
-
-## Build image and release publish Helm charts
-
-The GitHub Actions workflow [`publish-helm-chart.yaml`](https://github.com/2i2c-org/jupyterhub-usage-quotas/blob/main/.github/workflows/publish-helm-chart.yaml) uses [chartpress](https://github.com/jupyterhub/chartpress) to automatically:
-
-- Build the image
-- Push the image to the Quay registry (quay.io)
-- Update the Helm chart with the new image tags
-- Package and publish the Helm chart to [https://2i2c.org/jupyterhub-usage-quotas/](https://2i2c.org/jupyterhub-usage-quotas/)
-
 ## Release version updates
 
 To update a major or minor version, or patch a release, and publish on PyPI:
@@ -68,8 +57,7 @@ To update a major or minor version, or patch a release, and publish on PyPI:
 
    This will:
 
-   - Update `__version__` in `jupyterhub_home_nfs/__init__.py`
-   - Update `version` and `appVersion` in `helm/jupyterhub-usage-quotas/Chart.yaml`
+   - Update `__version__` in `src/jupyterhub_usage_quotas/__init__.py`
    - Create a git commit
    - Create a git tag
 
@@ -93,6 +81,4 @@ After pushing your changes:
 1. Check the GitHub Actions [workflow status](https://github.com/2i2c-org/jupyterhub-usage-quotas/actions)
 1. Verify that:
    - The workflow completed successfully
-   - The image is available [on quay.io](https://quay.io/repository/2i2c/jupyterhub-usage-quotas)
-   - The Helm chart is published on [https://2i2c.org/jupyterhub-usage-quotas/](https://2i2c.org/jupyterhub-usage-quotas/)
    - The package is available on PyPI
